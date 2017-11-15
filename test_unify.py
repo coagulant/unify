@@ -103,6 +103,22 @@ class TestUnitsWithFstrings(unittest.TestCase):
                                            preferred_quote="'"))
 
 
+class TestUnitsWithUnicodeStrings(unittest.TestCase):
+
+    def test_unify_quotes(self):
+        self.assertEqual("u'foo'",
+                         unify.unify_quotes('u"foo"',
+                                            preferred_quote="'"))
+
+        self.assertEqual('u"foo"',
+                         unify.unify_quotes('u"foo"',
+                                            preferred_quote='"'))
+
+        self.assertEqual('u"foo"',
+                         unify.unify_quotes("u'foo'",
+                                            preferred_quote='"'))
+
+
 class TestSystem(unittest.TestCase):
 
     def test_diff(self):
