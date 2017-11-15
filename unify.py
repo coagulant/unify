@@ -85,7 +85,9 @@ def unify_quotes(token_string, preferred_quote):
     allowed_starts = {
         '': bad_quote,
         'f': 'f' + bad_quote,
-        'b': 'b' + bad_quote
+        'b': 'b' + bad_quote,
+        'r': 'r' + bad_quote,
+        'u': 'u' + bad_quote,
     }
 
     if not any(token_string.startswith(start)

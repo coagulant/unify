@@ -144,6 +144,40 @@ class TestUnitsWithByteStrings(unittest.TestCase):
                                            preferred_quote="'"))
 
 
+class TestUnitsWithUnicodeStrings(unittest.TestCase):
+    """ Tests for python3 byte string handling."""
+
+    def test_unify_quotes(self):
+        self.assertEqual("r'foo'",
+                         unify.unify_quotes('r"foo"',
+                                            preferred_quote="'"))
+
+        self.assertEqual('r"foo"',
+                         unify.unify_quotes('r"foo"',
+                                            preferred_quote='"'))
+
+        self.assertEqual('r"foo"',
+                         unify.unify_quotes("r'foo'",
+                                            preferred_quote='"'))
+
+
+class TestUnitsWithRawStrings(unittest.TestCase):
+    """ Tests for python3 byte string handling."""
+
+    def test_unify_quotes(self):
+        self.assertEqual("r'foo'",
+                         unify.unify_quotes('r"foo"',
+                                            preferred_quote="'"))
+
+        self.assertEqual('r"foo"',
+                         unify.unify_quotes('r"foo"',
+                                            preferred_quote='"'))
+
+        self.assertEqual('r"foo"',
+                         unify.unify_quotes("r'foo'",
+                                            preferred_quote='"'))
+
+
 class TestSystem(unittest.TestCase):
 
     def test_diff(self):
